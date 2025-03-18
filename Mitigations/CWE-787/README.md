@@ -13,7 +13,7 @@ docker-compose up --build
 Una vez el servidor arranque construye la imagen del cliente y ejecuta el contenedor:
 ```bash
 // Construcción de la images
-docker build . -t cwe-787-client
+docker build ./client -t cwe-787-client
 
 // Construcción del contenedor
 docker run -it --network=host cwe-787-client
