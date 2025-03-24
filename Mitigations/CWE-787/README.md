@@ -23,4 +23,12 @@ Con el contenedor interactivo, ejecuta el comando:
 ```bash
 nc -u 127.0.0.1 12345
 ```
-Envía un mensaje que supere el `BUFFER_SIZE 16` y observa como crashea la aplicación.
+Envía un mensaje que supere el `BUFFER_SIZE 16` y observa como la aplicación no es capaz de crashear gracias a que existe un control de la cantidad de datos a recibir.
+```c
+void process_data(char *data) {
+    char buffer[BUFFER_SIZE];
+    strncpy(buffer, data, BUFFER_SIZE - 1);
+    buffer[BUFFER_SIZE - 1] = '\0';  // Ensure string termination
+    printf("Received data: %s\n", buffer);
+}
+```

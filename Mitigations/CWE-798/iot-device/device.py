@@ -1,9 +1,10 @@
 import requests
 import time
+import os
 
 # 🚨 Hardcoded credentials (vulnerability)
-USERNAME = "admin"
-PASSWORD = "123456"
+USERNAME = os.getenv("APP_USERNAME")
+PASSWORD = os.getenv("APP_PASSWORD")
 
 # Server URL
 API_URL = "http://server:5000/upload"

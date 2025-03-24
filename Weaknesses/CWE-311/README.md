@@ -3,26 +3,26 @@
 ## Descripción
 El producto no encripta información crítica o sensible antes de almacenarla o transmitirla.
 
-El servidor puede ser iniciado utilizando el comando:
-
-## Pasos de ejecución
-```bash
-// Construcción de imagen de servidor
-docker build . -t cwe-311-server:v1
-
-// Ejecución de contenedor
-docker run -it -p 8080:8080 cwe-311-server:v1
+El servidor puede ser inicializado utilizando el comando:
 ```
-
-Un cliente interactivo para realizar la conexión se puede crear utilizando la imagen de cliente
-
-```bash
-// Construcicón de imagen de cliente
-docker build . -t cwe-311-client:v1 
-
-// Ejecución intercativa de cliente
-docker run -it --network=host cwe-311-client:v1
+docker-compose up --build
 ```
-Una vez conectado el cliente, desde el servidor se podrá simular envío de información y revelar como el cliente expone esta información.
-![alt text](image.png)
-![alt text](image-1.png)
+Una  vez inicializado el servidor, se podrán tramitar peticiones haciendo uso del script de cliente.
+```bash
+python client/client.py
+```
+```python
+import requests
+import time
+
+SERVER_URL = "http://127.0.0.1:5620/data"
+
+while True:
+    data = {"temperature": 25, "device_id": "iot-001"}
+    response = requests.post(SERVER_URL, json=data)
+    print(f"Sent data: {data}, Response: {response.status_code}")
+    time.sleep(5)
+
+```
+Este estára tramitando peticiones cada 5 segundo e utilizando un analizador de red como **Wireshark** se podrá observar como se tramita en texto plano a través de la red. 
+![alt text](image-2.png)

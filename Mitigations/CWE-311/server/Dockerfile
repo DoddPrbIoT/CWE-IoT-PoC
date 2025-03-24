@@ -1,11 +1,5 @@
-FROM ubuntu:latest
-
+FROM python:3.9
 WORKDIR /app
-COPY . .
-
-RUN apt-get update -y
-RUN apt-get install netcat-traditional
-
-CMD [ "nc","-lvp", "8080" ]
-
-EXPOSE 8080
+COPY server.py ssl.crt ssl.key ./
+RUN pip install flask
+CMD ["python", "server.py"]

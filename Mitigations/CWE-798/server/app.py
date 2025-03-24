@@ -1,10 +1,11 @@
+import os
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
 VALID_CREDENTIALS = {
-    "username": "admin",
-    "password": "123456"
+    "username": os.getenv("APP_USERNAME"),
+    "password": os.getenv("APP_PASSWORD")
 }
 
 sensor_data_db = []
