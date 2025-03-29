@@ -7,4 +7,7 @@ RUN pip install -r requirements.txt
 
 COPY device.py .
 
-CMD ["python", "device.py"]
+ENV APP_USERNAME=admin
+ENV APP_PASSWORD=admin
+
+CMD ["python", "-u", "device.py"]

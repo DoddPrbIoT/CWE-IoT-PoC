@@ -1,22 +1,8 @@
-version: '3.8'
-
+version: '3'
 services:
   server:
     build: ./server
     ports:
-      - "8080:8080"
-    networks:
-      - my_network
+      - "443:443"
+    network_mode: "bridge" 
 
-  client:
-    build: ./client
-    stdin_open: true
-    tty: true
-    networks:
-      - my_network
-    depends_on:
-      - server
-
-networks:
-  my_network:
-    driver: bridge

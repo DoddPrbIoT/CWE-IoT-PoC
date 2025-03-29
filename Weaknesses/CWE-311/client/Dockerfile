@@ -1,12 +1,6 @@
-FROM ubuntu:latest
-
+FROM python:3.9
 WORKDIR /app
-COPY . .
+COPY client.py .
+RUN pip install requests
+CMD ["python", "-u", "client.py"]
 
-RUN apt-get update -y
-RUN apt-get install gcc -y
-
-
-RUN gcc client.c -o client
-
-CMD [ "./client", "127.0.0.1", "8080" ]
