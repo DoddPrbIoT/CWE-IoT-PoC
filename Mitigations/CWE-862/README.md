@@ -38,8 +38,8 @@ def turn_on_device():
 **Petición de token**
 ```
 curl -X POST "http://localhost:5000/api/login" \
-     -H "Content-Type: application/json" \
-     -d '{"username": "admin", "password": "admin"}'
+    -H "Content-Type: application/json" \
+    -d "{\"username\": \"admin\", \"password\": \"admin\"}"
 
 ```
 
