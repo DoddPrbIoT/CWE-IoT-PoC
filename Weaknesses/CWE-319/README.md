@@ -2,6 +2,7 @@
 
 ## Descripción
 El producto transmite información sensible o de seguridad crítica en texto plano en un canal de comunicación que puede ser interceptado por actores sin autorización.
+![alt text](image-4.png)
 
 ## Pasos de ejecución
 

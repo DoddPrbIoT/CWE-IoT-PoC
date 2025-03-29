@@ -5,6 +5,8 @@ La vulnerabilidad CWE-287 ocurre cuando una aplicación no verifica adecuadament
 
 Este ejemplo muestra un error en la autenticación dentro de una aplicación Express, donde solo se verifica la existencia del nombre de usuario sin comprobar la contraseña.
 
+![alt text](../../Weaknesses/CWE-287/image.png)
+
 ## Código de Ejemplo
 El archivo `server.js` contiene el siguiente código:
 
@@ -114,3 +116,16 @@ app.get('/admin', requireAuth, requireAdmin, (req, res) => {
 ```
 
 De esta manera, se evita tener privilegios sin una apropiada autenticación.
+
+
+## Pasos de ejecución
+
+Construye la imagen utilizando el comando
+```
+docker build . -t cwe-287
+```
+
+Crea un contenedor a partir de la imagen
+```
+docker run -it -p 5000:5000 cwe-287
+```

@@ -2,6 +2,7 @@
 
 ## Descripción
 El producto no encripta información crítica o sensible antes de almacenarla o transmitirla.
+![alt text](../../Weaknesses/CWE-311/image-3.png)
 
 El servidor puede ser iniciado utilizando el comando:
 
@@ -12,7 +13,8 @@ docker-compose up --build
 ```
 El cliente que tramitará las peticiones puede ser iniciado con:
 ```bash
-python client/client.py
+cd client/
+python client.py
 ```
 
 

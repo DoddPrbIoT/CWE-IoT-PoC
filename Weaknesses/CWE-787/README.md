@@ -2,6 +2,7 @@
 
 ## Descripción
 El producto escribe datos más allá del final, o antes del principio, del búfer previsto.
+![alt text](image.png)
 
 ## Pasos de ejecución 
 

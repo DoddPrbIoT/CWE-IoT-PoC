@@ -1,6 +1,7 @@
 # CWE-522 Insufficiently Protected Credentials
 ## Descripción
 El producto transmite o almacenas credenciales de autenticación, pero utiliza un método inseguro que es susceptible a una intercepción y o recuperación.
+![alt text](../../Weaknesses/CWE-522/image.png)
 
 ## Pasos de ejecución
 La aplicación de ejemplo se puede ejecutar de la siguiente manera:

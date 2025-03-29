@@ -1,7 +1,7 @@
 import requests
 import time
 
-SERVER_URL = "https://server/data"
+SERVER_URL = "https://localhost/data"
 
 while True:
     data = {"temperature": 25, "device_id": "iot-001"}

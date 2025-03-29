@@ -4,6 +4,7 @@
 La vulnerabilidad CWE-287 ocurre cuando una aplicación no verifica adecuadamente la identidad de un usuario antes de concederle acceso a recursos o funcionalidades protegidas. Esto puede llevar a accesos no autorizados y posibles ataques de escalación de privilegios.
 
 Este ejemplo muestra un error en la autenticación dentro de una aplicación Express, donde solo se verifica la existencia del nombre de usuario sin comprobar la contraseña.
+![alt text](image.png)
 
 ## Código de Ejemplo
 El archivo `server.js` contiene el siguiente código:
@@ -54,3 +55,26 @@ app.listen(3000, () => {
 ```
 
 En el código de ejemplo, basta solo con pasar por cookies el parametro `user=Administrator` para entrar a tareas de administrador, o `loggedin=true` para simular una logueo en el sistema.
+
+## Pasos de ejecución 
+Construye la imagen utilizando el comando
+```
+docker build . -t cwe-287
+```
+
+Crea un contenedor a partir de la imagen
+```
+docker run -it -p 3000:3000 cwe-287
+```
+
+Ejecuta 
+
+```
+curl -X GET http://localhost:3000/admin --cookie "user=Administrator"
+```
+Realizando esta petición, el servidor responde permitiendo realizar tareas de administrador, sin validar adecuadamente el usuario.
+De igual manera se puede engañar al sistema sobre el logueo, pasando la cookie `loggedin=true`
+
+```
+curl -X POST http://localhost:3000/login --cookie "loggedin=true"
+```

@@ -8,6 +8,7 @@ El servidor puede ser inicializado utilizando el comando:
 docker-compose up --build
 ```
 Una  vez inicializado el servidor, se podrán tramitar peticiones haciendo uso del script de cliente.
+![alt text](image-3.png)
 ```bash
 python client/client.py
 ```
